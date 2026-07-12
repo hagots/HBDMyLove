@@ -2,17 +2,18 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>🎂 Happy Birthday, Baby! (Pixel)</title>
     <!-- Font Pixel 8-bit -->
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
     <style>
-        /* ----- GLOBAL RESET & BODY ----- */
+        /* ----- GLOBAL RESET ----- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             user-select: none;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
@@ -22,17 +23,16 @@
             justify-content: center;
             font-family: 'Press Start 2P', monospace;
             background: #0f0e17;
-            padding: 20px;
+            padding: 12px;
             position: relative;
             overflow: hidden;
-            /* Grid latar belakang pixel */
             background-image:
-                linear-gradient(rgba(255, 137, 6, 0.08) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 137, 6, 0.08) 1px, transparent 1px);
-            background-size: 32px 32px;
+                linear-gradient(rgba(255, 137, 6, 0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 137, 6, 0.06) 1px, transparent 1px);
+            background-size: 28px 28px;
         }
 
-        /* ----- PIXEL CONFETTI (background) ----- */
+        /* ----- CONFETTI (lebih sedikit & ringan) ----- */
         #confetti-container {
             position: fixed;
             top: 0;
@@ -45,121 +45,114 @@
         }
         .pixel-confetti {
             position: absolute;
-            width: 8px;
-            height: 8px;
+            width: 6px;
+            height: 6px;
             background: #ff8906;
             top: -20px;
-            opacity: 0.7;
+            opacity: 0.5;
             image-rendering: pixelated;
             animation: fall linear infinite;
         }
         @keyframes fall {
             0% {
                 transform: translateY(0) rotate(0deg);
-                opacity: 0.8;
+                opacity: 0.6;
             }
             100% {
                 transform: translateY(110vh) rotate(360deg);
-                opacity: 0.1;
+                opacity: 0.05;
             }
         }
 
-        /* ----- KARTU UTAMA (Pixel Style) ----- */
+        /* ----- KARTU UTAMA (Pixel) ----- */
         .pixel-card {
             position: relative;
             z-index: 10;
-            max-width: 660px;
+            max-width: 580px;
             width: 100%;
-            padding: 40px 35px 45px;
+            padding: 28px 20px 32px;
             background: #1a1a2e;
-            border: 6px solid #ff8906;
+            border: 5px solid #ff8906;
             box-shadow:
-                0 0 0 4px #0f0e17,
-                0 0 0 8px #ff8906,
-                0 20px 60px rgba(0, 0, 0, 0.8);
+                0 0 0 3px #0f0e17,
+                0 0 0 6px #ff8906,
+                0 12px 40px rgba(0, 0, 0, 0.7);
             text-align: center;
-            transition: transform 0.1s ease, box-shadow 0.2s;
+            transition: transform 0.15s;
             image-rendering: pixelated;
             cursor: pointer;
+            border-radius: 0;
         }
-        .pixel-card:hover {
-            box-shadow:
-                0 0 0 4px #0f0e17,
-                0 0 0 8px #ff8906,
-                0 0 0 12px #ff3d7f,
-                0 20px 70px rgba(255, 61, 127, 0.3);
-            transform: scale(1.01);
+        .pixel-card:active {
+            transform: scale(0.98);
         }
 
         /* ----- PIXEL HEART (Canvas) ----- */
         .heart-wrapper {
             display: flex;
             justify-content: center;
-            margin-bottom: 20px;
+            margin-bottom: 14px;
         }
         #heartCanvas {
-            width: 90px;
-            height: 90px;
+            width: 70px;
+            height: 70px;
             image-rendering: pixelated;
             cursor: pointer;
-            transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
-            filter: drop-shadow(0 0 20px rgba(255, 61, 127, 0.4));
-        }
-        #heartCanvas:hover {
-            transform: scale(1.18);
+            transition: transform 0.12s;
+            filter: drop-shadow(0 0 12px rgba(255, 61, 127, 0.3));
+            touch-action: manipulation;
         }
         #heartCanvas:active {
-            transform: scale(0.85);
+            transform: scale(0.9);
         }
 
         /* ----- TEKS PIXEL ----- */
         .greeting {
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             color: #fffffe;
-            text-shadow: 4px 4px 0 #ff8906, 6px 6px 0 #0f0e17;
-            letter-spacing: 2px;
-            line-height: 1.5;
-            margin-bottom: 8px;
+            text-shadow: 3px 3px 0 #ff8906, 5px 5px 0 #0f0e17;
+            letter-spacing: 1px;
+            line-height: 1.6;
+            margin-bottom: 4px;
         }
         .greeting .baby-name {
             color: #ff3d7f;
-            text-shadow: 4px 4px 0 #ff8906, 6px 6px 0 #0f0e17;
-            display: inline-block;
-            font-size: 2.2rem;
+            text-shadow: 3px 3px 0 #ff8906, 5px 5px 0 #0f0e17;
+            font-size: 1.8rem;
         }
 
         .sub {
-            font-size: 0.7rem;
+            font-size: 0.55rem;
             color: #a7a9be;
-            letter-spacing: 3px;
-            margin-bottom: 20px;
+            letter-spacing: 2px;
+            margin-bottom: 14px;
             border-top: 3px solid #ff8906;
             border-bottom: 3px solid #ff8906;
-            padding: 10px 0;
+            padding: 8px 0;
             display: inline-block;
         }
 
-        /* ----- PESAN TYPEWRITER ----- */
+        /* ----- MESSAGE BOX (typewriter) ----- */
         .message-box {
             background: #0f0e17;
-            padding: 18px 18px 14px;
+            padding: 14px 14px 10px;
             border: 4px solid #ff8906;
-            margin: 15px 0 20px;
-            min-height: 100px;
+            margin: 12px 0 16px;
+            min-height: 80px;
             text-align: left;
         }
         #typewriter {
-            font-size: 0.7rem;
-            line-height: 2;
+            font-size: 0.6rem;
+            line-height: 1.9;
             color: #fffffe;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             word-break: break-word;
-            min-height: 70px;
+            min-height: 60px;
         }
         #typewriter .cursor-blink {
             display: inline-block;
-            width: 12px;
-            height: 16px;
+            width: 10px;
+            height: 14px;
             background: #ff8906;
             vertical-align: middle;
             margin-left: 2px;
@@ -175,12 +168,13 @@
             }
         }
 
-        /* ----- TANDA TANGAN PIXEL ----- */
+        /* ----- SIGNATURE ----- */
         .signature {
-            font-size: 0.6rem;
+            font-size: 0.5rem;
             color: #a7a9be;
-            margin-top: 12px;
-            letter-spacing: 2px;
+            margin-top: 8px;
+            letter-spacing: 1px;
+            line-height: 1.8;
         }
         .signature span {
             color: #ff8906;
@@ -188,92 +182,148 @@
         .signature .heart-pixel {
             color: #ff3d7f;
             display: inline-block;
-            animation: beat 1.2s ease-in-out infinite;
+            animation: beat 1.4s ease-in-out infinite;
         }
         @keyframes beat {
             0%,
             100% {
                 transform: scale(1);
             }
-            15% {
+            20% {
                 transform: scale(1.3);
             }
-            30% {
+            40% {
                 transform: scale(1);
             }
-            45% {
-                transform: scale(1.2);
-            }
             60% {
+                transform: scale(1.15);
+            }
+            80% {
                 transform: scale(1);
             }
         }
 
-        /* ----- PIXEL BURST (ledakan saat klik) ----- */
+        /* ----- BURST PARTICLE (lebih kecil & cepat hilang) ----- */
         .burst-particle {
             position: fixed;
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
             pointer-events: none;
             z-index: 999;
             image-rendering: pixelated;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
-        /* ----- RESPONSIVE ----- */
-        @media (max-width: 500px) {
+        /* ----- RESPONSIVE (Mobile) ----- */
+        @media (max-width: 480px) {
             .pixel-card {
-                padding: 25px 18px 30px;
+                padding: 20px 14px 24px;
+                border-width: 4px;
+                box-shadow:
+                    0 0 0 2px #0f0e17,
+                    0 0 0 5px #ff8906,
+                    0 8px 30px rgba(0, 0, 0, 0.6);
             }
             .greeting {
-                font-size: 1.2rem;
+                font-size: 1.0rem;
+                text-shadow: 2px 2px 0 #ff8906, 3px 3px 0 #0f0e17;
             }
             .greeting .baby-name {
-                font-size: 1.6rem;
-            }
-            #typewriter {
-                font-size: 0.55rem;
-                line-height: 1.8;
+                font-size: 1.3rem;
+                text-shadow: 2px 2px 0 #ff8906, 3px 3px 0 #0f0e17;
             }
             #heartCanvas {
-                width: 70px;
-                height: 70px;
+                width: 60px;
+                height: 60px;
+            }
+            #typewriter {
+                font-size: 0.5rem;
+                line-height: 1.8;
             }
             .sub {
-                font-size: 0.55rem;
+                font-size: 0.45rem;
+                padding: 6px 0;
+            }
+            .signature {
+                font-size: 0.45rem;
+            }
+            .message-box {
+                padding: 10px 10px 8px;
+                min-height: 70px;
+            }
+            .pixel-confetti {
+                width: 5px;
+                height: 5px;
+            }
+        }
+        @media (max-width: 380px) {
+            .greeting {
+                font-size: 0.85rem;
+            }
+            .greeting .baby-name {
+                font-size: 1.1rem;
+            }
+            #heartCanvas {
+                width: 50px;
+                height: 50px;
+            }
+            #typewriter {
+                font-size: 0.45rem;
+                line-height: 1.6;
+            }
+            .pixel-card {
+                padding: 16px 10px 18px;
+            }
+        }
+
+        /* ----- ORIENTASI LANDSCAPE (opsional) ----- */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .pixel-card {
+                max-width: 480px;
+                padding: 14px 16px 18px;
+            }
+            .greeting {
+                font-size: 0.9rem;
+            }
+            #heartCanvas {
+                width: 50px;
+                height: 50px;
+            }
+            .message-box {
+                min-height: 60px;
+                padding: 8px 10px;
+            }
+            #typewriter {
+                font-size: 0.45rem;
+                line-height: 1.6;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- CONFETTI BACKGROUND (pixel) -->
+    <!-- CONFETTI (ringan) -->
     <div id="confetti-container"></div>
 
-    <!-- KARTU UTAMA -->
+    <!-- KARTU -->
     <div class="pixel-card" id="pixelCard">
 
-        <!-- Pixel Heart (Canvas) -->
         <div class="heart-wrapper">
             <canvas id="heartCanvas" width="70" height="70"></canvas>
         </div>
 
-        <!-- Teks -->
         <div class="greeting">
             HAPPY BIRTHDAY, <br />
             <span class="baby-name">BABY</span> 💖
         </div>
         <div class="sub">✦ 8-BIT CINTA ✦</div>
 
-        <!-- Typewriter Message -->
         <div class="message-box">
             <div id="typewriter">
                 <span class="cursor-blink"></span>
             </div>
         </div>
 
-        <!-- Signature -->
         <div class="signature">
             <span>— dari pacarmu yang selalu kangen —</span>
             <br />
@@ -283,17 +333,16 @@
 
     <script>
         // ============================================================
-        //  1.  GAMBAR PIXEL HEART DI CANVAS
+        //  1.  PIXEL HEART DI CANVAS (ringan)
         // ============================================================
         (function drawPixelHeart() {
             const canvas = document.getElementById('heartCanvas');
             const ctx = canvas.getContext('2d');
-            const size = 7; // 7x7 grid
-            const scale = 10; // 10px per pixel
+            const size = 7;
+            const scale = 10;
             canvas.width = size * scale;
             canvas.height = size * scale;
 
-            // Matrix pixel heart (1 = merah, 0 = transparan)
             const matrix = [
                 [0, 0, 1, 0, 0, 0, 1],
                 [0, 1, 1, 1, 0, 1, 1],
@@ -306,40 +355,42 @@
 
             function drawHeart(color) {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                for (let row = 0; row < size; row++) {
-                    for (let col = 0; col < size; col++) {
-                        if (matrix[row][col] === 1) {
+                for (let r = 0; r < size; r++) {
+                    for (let c = 0; c < size; c++) {
+                        if (matrix[r][c] === 1) {
                             ctx.fillStyle = color || '#ff3d7f';
-                            ctx.fillRect(col * scale, row * scale, scale, scale);
-                            // efek highlight kecil agar lebih "pixel"
-                            ctx.fillStyle = 'rgba(255,255,255,0.15)';
-                            ctx.fillRect(col * scale + 2, row * scale + 2, 3, 3);
+                            ctx.fillRect(c * scale, r * scale, scale, scale);
+                            ctx.fillStyle = 'rgba(255,255,255,0.1)';
+                            ctx.fillRect(c * scale + 2, r * scale + 2, 3, 3);
                         }
                     }
                 }
             }
 
-            // Gambar awal
             drawHeart('#ff3d7f');
 
-            // Hover: ganti warna jadi lebih terang
+            // Hover / sentuh
             canvas.addEventListener('mouseenter', () => drawHeart('#ff6b9d'));
             canvas.addEventListener('mouseleave', () => drawHeart('#ff3d7f'));
+            // Untuk mobile: touchstart dan touchend
+            canvas.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                drawHeart('#ffaa00');
+                setTimeout(() => drawHeart('#ff3d7f'), 300);
+            });
 
-            // Klik di heart: efek ledakan khusus (dijalankan di bagian klik global)
-            // tapi kita tambahkan efek visual langsung
-            canvas.addEventListener('click', (e) => {
+            // Klik (desktop) - efek kilat
+            canvas.addEventListener('click', () => {
                 drawHeart('#ffaa00');
                 setTimeout(() => drawHeart('#ff3d7f'), 200);
             });
 
-            // Export untuk dipanggil ulang jika perlu
             window.drawHeart = drawHeart;
         })();
 
 
         // ============================================================
-        //  2.  TYPEWRITER EFFECT (romantis)
+        //  2.  TYPEWRITER (lebih lambat agar ringan di HP)
         // ============================================================
         (function typewriter() {
             const el = document.getElementById('typewriter');
@@ -351,15 +402,12 @@
                 'Aku sayang kamu selamanya.';
 
             let index = 0;
-            let isDeleting = false;
             let currentText = '';
 
-            // Hapus cursor blink awal
             el.innerHTML = '';
 
             function type() {
                 if (index < text.length) {
-                    // Tambah huruf
                     if (text[index] === '\n') {
                         currentText += '<br />';
                     } else {
@@ -367,44 +415,43 @@
                     }
                     index++;
                     el.innerHTML = currentText + '<span class="cursor-blink"></span>';
-                    setTimeout(type, 70 + Math.random() * 40);
+                    // Kecepatan lebih lambat (80-120ms) agar tidak lag di HP
+                    setTimeout(type, 80 + Math.random() * 50);
                 } else {
-                    // Selesai, biarkan cursor tetap berkedip
                     el.innerHTML = currentText + '<span class="cursor-blink"></span>';
-                    // setelah 4 detik, restart (opsional, biarkan saja)
                 }
             }
 
-            // Mulai setelah 1 detik
-            setTimeout(type, 800);
+            setTimeout(type, 600);
         })();
 
 
         // ============================================================
-        //  3.  PIXEL CONFETTI (background jatuh)
+        //  3.  CONFETTI (jumlah dikurangi, ringan)
         // ============================================================
         (function createConfetti() {
             const container = document.getElementById('confetti-container');
             const colors = ['#ff8906', '#ff3d7f', '#f9c74f', '#90be6d', '#4cc9f0', '#f9844a', '#b5179e'];
+            const count = 20; // lebih sedikit
 
-            for (let i = 0; i < 45; i++) {
+            for (let i = 0; i < count; i++) {
                 const el = document.createElement('div');
                 el.className = 'pixel-confetti';
-                const size = 6 + Math.random() * 10;
+                const size = 5 + Math.random() * 8;
                 el.style.width = size + 'px';
                 el.style.height = size + 'px';
                 el.style.background = colors[Math.floor(Math.random() * colors.length)];
                 el.style.left = Math.random() * 100 + '%';
-                el.style.animationDuration = 12 + Math.random() * 18 + 's';
+                el.style.animationDuration = 14 + Math.random() * 18 + 's';
                 el.style.animationDelay = Math.random() * 20 + 's';
-                el.style.opacity = 0.3 + Math.random() * 0.5;
+                el.style.opacity = 0.3 + Math.random() * 0.4;
                 container.appendChild(el);
             }
         })();
 
 
         // ============================================================
-        //  4.  INTERAKSI KLIK → LEDAKAN PIXEL HEART (BURST)
+        //  4.  BURST PARTICLE (lebih ringan, cepat hilang)
         // ============================================================
         (function burstOnClick() {
             const card = document.getElementById('pixelCard');
@@ -412,23 +459,23 @@
             let animationId = null;
 
             function createBurst(x, y) {
-                const colors = ['#ff3d7f', '#ff8906', '#f9c74f', '#4cc9f0', '#b5179e', '#90be6d', '#ff6b9d'];
-                const count = 36;
+                const colors = ['#ff3d7f', '#ff8906', '#f9c74f', '#4cc9f0', '#b5179e', '#90be6d'];
+                const count = 20; // lebih sedikit
 
                 for (let i = 0; i < count; i++) {
                     const angle = Math.random() * 2 * Math.PI;
-                    const speed = 1.5 + Math.random() * 5;
-                    const size = 6 + Math.random() * 12;
+                    const speed = 1.2 + Math.random() * 4;
+                    const size = 5 + Math.random() * 10;
                     particles.push({
-                        x: x,
-                        y: y,
+                        x,
+                        y,
                         vx: Math.cos(angle) * speed,
-                        vy: Math.sin(angle) * speed - 1.2,
-                        size: size,
+                        vy: Math.sin(angle) * speed - 1.0,
+                        size,
                         color: colors[Math.floor(Math.random() * colors.length)],
                         life: 1,
-                        decay: 0.008 + Math.random() * 0.012,
-                        gravity: 0.06
+                        decay: 0.012 + Math.random() * 0.015,
+                        gravity: 0.08
                     });
                 }
 
@@ -440,7 +487,6 @@
             function animateBurst() {
                 const container = document.body;
 
-                // Update dan render
                 for (let i = particles.length - 1; i >= 0; i--) {
                     const p = particles[i];
                     p.x += p.vx;
@@ -453,7 +499,6 @@
                         continue;
                     }
 
-                    // Buat elemen DOM
                     const el = document.createElement('div');
                     el.className = 'burst-particle';
                     el.style.left = p.x + 'px';
@@ -461,18 +506,17 @@
                     el.style.width = p.size + 'px';
                     el.style.height = p.size + 'px';
                     el.style.background = p.color;
-                    el.style.opacity = p.life * 0.9;
+                    el.style.opacity = p.life * 0.85;
                     el.style.transform = `rotate(${Math.random() * 360}deg)`;
                     container.appendChild(el);
 
-                    // Hapus setelah 1 frame (tapi kita hapus setelah animasi selesai)
-                    // Lebih baik kita hapus di akhir loop dengan timeout
+                    // Hapus setelah 80ms agar tidak menumpuk
                     setTimeout(() => {
                         if (el.parentNode) el.remove();
-                    }, 100);
+                    }, 80);
                 }
 
-                // Hapus elemen yang sudah mati dari DOM (tambahan)
+                // Hapus elemen yang tersisa jika opacity rendah
                 document.querySelectorAll('.burst-particle').forEach(el => {
                     if (parseFloat(el.style.opacity) < 0.05) {
                         el.remove();
@@ -483,35 +527,43 @@
                     animationId = requestAnimationFrame(animateBurst);
                 } else {
                     animationId = null;
-                    // Bersihkan sisa elemen
                     document.querySelectorAll('.burst-particle').forEach(el => el.remove());
                 }
             }
 
-            // Event klik di card (kecuali jika klik di canvas, biarkan tetap jalan)
-            card.addEventListener('click', function(e) {
-                // koordinat relatif ke viewport
+            // Event klik/tap di card
+            card.addEventListener('click', (e) => {
                 const x = e.clientX;
                 const y = e.clientY;
                 createBurst(x, y);
             });
 
-            // Juga klik di heart canvas (tetap jalan)
-            document.getElementById('heartCanvas').addEventListener('click', function(e) {
+            // Touch event untuk mobile (agar lebih responsif)
+            card.addEventListener('touchstart', (e) => {
+                const touch = e.touches[0];
+                if (touch) {
+                    createBurst(touch.clientX, touch.clientY);
+                }
+            }, { passive: true });
+
+            // Juga di canvas
+            const canvas = document.getElementById('heartCanvas');
+            canvas.addEventListener('click', (e) => {
                 e.stopPropagation();
-                const x = e.clientX;
-                const y = e.clientY;
-                createBurst(x, y);
+                createBurst(e.clientX, e.clientY);
             });
+            canvas.addEventListener('touchstart', (e) => {
+                e.stopPropagation();
+                const touch = e.touches[0];
+                if (touch) {
+                    createBurst(touch.clientX, touch.clientY);
+                }
+            }, { passive: true });
         })();
 
 
-        // ============================================================
-        //  5.  PESAN KONSOL (untuk si pembuat)
-        // ============================================================
-        console.log('🎂 Happy Birthday, Baby! (Pixel Edition)');
-        console.log('💕 Dibuat dengan cinta 8-bit untuk pacar temanmu.');
-        console.log('✨ Klik di mana saja untuk ledakan pixel heart!');
+        console.log('🎂 Happy Birthday, Baby! (Pixel Edition - optimized for mobile)');
+        console.log('💕 Tap anywhere for pixel hearts burst!');
     </script>
 
 </body>
