@@ -208,7 +208,7 @@
             50% { opacity: 0.15; }
         }
 
-        /* ---------- SLIDE 3 : FOTO FRAME (STATIS, TANPA UPLOAD) ---------- */
+        /* ---------- SLIDE 3 : FOTO FRAME (STATIS + FALLBACK) ---------- */
         .photo-frames {
             display: flex;
             flex-wrap: wrap;
@@ -235,14 +235,22 @@
             display: block;
             background: #0f0e17;
         }
-        /* Placeholder jika gambar belum ada */
         .photo-frame .placeholder {
+            position: absolute;
             font-size: 2rem;
             color: #a7a9be;
             opacity: 0.5;
             pointer-events: none;
         }
-        .photo-frame.has-image .placeholder {
+        /* Sembunyikan placeholder jika gambar berhasil dimuat */
+        .photo-frame img:not([src=""]) + .placeholder {
+            display: none;
+        }
+        /* Tampilkan placeholder jika gambar gagal (onerror) */
+        .photo-frame img.error + .placeholder {
+            display: block !important;
+        }
+        .photo-frame img.error {
             display: none;
         }
 
@@ -402,23 +410,24 @@
             <div class="tap-hint" id="tapHint">✦ sentuh untuk lanjut ✦</div>
         </div>
 
-        <!-- SLIDE 3 : FOTO STATIS (TANPA UPLOAD) -->
+        <!-- SLIDE 3 : FOTO STATIS + FALLBACK -->
         <div class="slide" data-slide="3">
             <div class="photo-frames">
-                <!-- ===================================================== -->
-                <!--  GANTI "src" DENGAN PATH FOTO DI REPO GITHUB KALIAN  -->
-                <!--  Contoh: "assets/foto1.jpg", "assets/foto2.png", dll  -->
-                <!-- ===================================================== -->
-                <div class="photo-frame has-image">
-                    <img src="assets/foto1.jpg" alt="Foto 1" />
+                <!-- 
+                    ⚠️ GANTI "src" DENGAN NAMA FILE FOTO KALIAN
+                    Format bisa .jpg, .jpeg, atau .png
+                    Pastikan file ada di folder "assets" di repo
+                -->
+                <div class="photo-frame">
+                    <img src="assets/foto1.jpg" alt="Foto 1" onerror="this.classList.add('error')" />
                     <span class="placeholder">📷</span>
                 </div>
-                <div class="photo-frame has-image">
-                    <img src="assets/foto2.jpg" alt="Foto 2" />
+                <div class="photo-frame">
+                    <img src="assets/foto2.jpg" alt="Foto 2" onerror="this.classList.add('error')" />
                     <span class="placeholder">📷</span>
                 </div>
-                <div class="photo-frame has-image">
-                    <img src="assets/foto3.jpg" alt="Foto 3" />
+                <div class="photo-frame">
+                    <img src="assets/foto3.jpg" alt="Foto 3" onerror="this.classList.add('error')" />
                     <span class="placeholder">📷</span>
                 </div>
             </div>
@@ -561,7 +570,7 @@
                 }
             })();
 
-            console.log('📸 Slide 3: foto statis dari folder assets — tidak ada tombol upload.');
+            console.log('📸 Slide 3: foto statis dari folder assets — fallback placeholder jika gambar gagal.');
         })();
     </script>
 
