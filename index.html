@@ -208,7 +208,7 @@
             50% { opacity: 0.15; }
         }
 
-        /* ---------- SLIDE 3 : FOTO FRAME (dengan fallback) ---------- */
+        /* ---------- SLIDE 3 : FOTO FRAME (Google Drive) ---------- */
         .photo-frames {
             display: flex;
             flex-wrap: wrap;
@@ -410,35 +410,23 @@
             <div class="tap-hint" id="tapHint">✦ sentuh untuk lanjut ✦</div>
         </div>
 
-        <!-- SLIDE 3 : FOTO dengan FALLBACK -->
+        <!-- SLIDE 3 : FOTO dari Google Drive -->
         <div class="slide" data-slide="3">
             <div class="photo-frames">
-                <!-- 
-                    ⚠️ GANTI "src" DENGAN PATH FILE KALIAN
-                    Gunakan nama file yang sudah diupload di folder "assets"
-                    Contoh: "assets/foto1.jpg"
-                -->
                 <div class="photo-frame">
-                    <img src="assets/foto1.jpg" alt="Foto 1" 
-                         onerror="this.classList.add('error'); console.error('Foto 1 gagal dimuat:', this.src);" />
+                    <img src="https://drive.google.com/uc?export=view&id=1wahJqMeRDFnHKiGNSQ-H7LnbtEwhBoK_" alt="Foto 1" />
                     <span class="placeholder">📷</span>
                 </div>
                 <div class="photo-frame">
-                    <img src="assets/foto2.jpg" alt="Foto 2" 
-                         onerror="this.classList.add('error'); console.error('Foto 2 gagal dimuat:', this.src);" />
+                    <img src="https://drive.google.com/uc?export=view&id=14dgV5NCaqncbNCby9IUCoKQMYTb6R4R4" alt="Foto 2" />
                     <span class="placeholder">📷</span>
                 </div>
                 <div class="photo-frame">
-                    <img src="assets/foto3.jpg" alt="Foto 3" 
-                         onerror="this.classList.add('error'); console.error('Foto 3 gagal dimuat:', this.src);" />
+                    <img src="https://drive.google.com/uc?export=view&id=1xVKec2xx4N2BVFzlsruS19Qa3T9I4ZP0" alt="Foto 3" />
                     <span class="placeholder">📷</span>
                 </div>
             </div>
             <p class="falling-text">💕 falling in love with u is the best thing i've ever felt 💕</p>
-            <!-- Pesan bantuan jika foto tidak muncul -->
-            <p style="font-size:0.35rem; color:#a7a9be; margin-top:8px;">
-                ⚠️ Jika foto tidak muncul, cek console (F12) untuk melihat error.
-            </p>
         </div>
 
         <!-- SLIDE 4 -->
@@ -577,7 +565,7 @@
                 }
             })();
 
-            console.log('📸 Slide 3: periksa console untuk error loading gambar.');
+            console.log('📸 Slide 3: foto dari Google Drive (direct link).');
         })();
     </script>
 
