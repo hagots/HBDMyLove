@@ -26,8 +26,8 @@
             overflow: hidden;
             position: relative;
             background-image:
-                linear-gradient(rgba(255, 137, 6, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 137, 6, 0.05) 1px, transparent 1px);
+                linear-gradient(rgba(244, 114, 182, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(244, 114, 182, 0.05) 1px, transparent 1px);
             background-size: 28px 28px;
         }
 
@@ -44,11 +44,11 @@
             align-items: center;
             justify-content: center;
             background: #1a1a2e;
-            border: 5px solid #ff8906;
+            border: 5px solid #f472b6; /* soft pink */
             box-shadow:
                 0 0 0 3px #0f0e17,
-                0 0 0 6px #ff8906,
-                0 12px 40px rgba(0, 0, 0, 0.7);
+                0 0 0 6px #f472b6,
+                0 12px 40px rgba(244, 114, 182, 0.3);
             padding: 30px 24px 28px;
             text-align: center;
             image-rendering: pixelated;
@@ -71,7 +71,7 @@
 
         h1, h2, h3, p {
             color: #fffffe;
-            text-shadow: 2px 2px 0 #ff8906, 4px 4px 0 #0f0e17;
+            text-shadow: 2px 2px 0 #f472b6, 4px 4px 0 #0f0e17;
             line-height: 1.6;
             letter-spacing: 1px;
         }
@@ -80,7 +80,7 @@
         .letter-icon {
             font-size: 4rem;
             margin-bottom: 10px;
-            filter: drop-shadow(0 0 12px rgba(255, 137, 6, 0.3));
+            filter: drop-shadow(0 0 12px rgba(244, 114, 182, 0.3));
             animation: float 3s ease-in-out infinite;
             position: relative;
             z-index: 5;
@@ -94,12 +94,12 @@
             display: inline-block;
             margin-top: 18px;
             padding: 12px 28px;
-            background: #ff8906;
+            background: #f472b6;
             color: #0f0e17;
             font-family: 'Press Start 2P', monospace;
             font-size: 0.8rem;
             border: none;
-            border-bottom: 6px solid #b35f00;
+            border-bottom: 6px solid #c2417a;
             cursor: pointer;
             transition: all 0.1s ease;
             text-shadow: none;
@@ -126,10 +126,10 @@
         .floating-love {
             position: absolute;
             font-size: 1.2rem;
-            color: #ff3d7f;
+            color: #f472b6;
             opacity: 0.4;
             animation: loveFloat linear infinite;
-            text-shadow: 0 0 10px rgba(255, 61, 127, 0.2);
+            text-shadow: 0 0 10px rgba(244, 114, 182, 0.2);
         }
         @keyframes loveFloat {
             0% { transform: translateY(0) rotate(0deg) scale(0.8); opacity: 0.2; }
@@ -153,13 +153,13 @@
         .combined-title {
             font-size: 1.4rem;
             color: #fffffe;
-            text-shadow: 2px 2px 0 #ff8906, 4px 4px 0 #0f0e17;
+            text-shadow: 2px 2px 0 #f472b6, 4px 4px 0 #0f0e17;
             line-height: 1.5;
             margin-bottom: 6px;
         }
         .combined-title .ampersand {
             color: #f9c74f;
-            text-shadow: 2px 2px 0 #ff8906, 4px 4px 0 #0f0e17;
+            text-shadow: 2px 2px 0 #f472b6, 4px 4px 0 #0f0e17;
         }
 
         .love-letter {
@@ -172,7 +172,7 @@
             font-size: 0.6rem;
             line-height: 2.1;
             color: #fffffe;
-            text-shadow: 1px 1px 0 #ff8906, 2px 2px 0 #0f0e17;
+            text-shadow: 1px 1px 0 #f472b6, 2px 2px 0 #0f0e17;
             opacity: 0;
             transform: translateY(12px);
             transition: opacity 0.9s ease, transform 0.9s ease;
@@ -183,7 +183,7 @@
             transform: translateY(0);
         }
         .love-line .heart-glow {
-            color: #ff3d7f;
+            color: #f472b6;
             display: inline-block;
             animation: heartBeat 1.6s ease-in-out infinite;
         }
@@ -208,7 +208,7 @@
             50% { opacity: 0.15; }
         }
 
-        /* ---------- SLIDE 3 : FOTO FRAME (Google Drive Thumbnail) ---------- */
+        /* ---------- SLIDE 3 : FOTO FRAME ---------- */
         .photo-frames {
             display: flex;
             flex-wrap: wrap;
@@ -219,7 +219,7 @@
         .photo-frame {
             width: 100px;
             height: 100px;
-            border: 4px solid #ff8906;
+            border: 4px solid #f472b6;
             background: #0f0e17;
             display: flex;
             align-items: center;
@@ -242,11 +242,9 @@
             opacity: 0.5;
             pointer-events: none;
         }
-        /* Sembunyikan placeholder jika gambar berhasil */
         .photo-frame img:not([src=""]) + .placeholder {
             display: none;
         }
-        /* Tampilkan placeholder jika gambar error */
         .photo-frame img.error + .placeholder {
             display: block !important;
         }
@@ -256,14 +254,20 @@
 
         .falling-text {
             font-size: 0.7rem;
-            color: #ffb3c6;
-            text-shadow: 1px 1px 0 #ff8906;
+            color: #f9a8d4; /* pink lebih muda */
+            text-shadow: 1px 1px 0 #f472b6;
             margin-top: 8px;
             line-height: 1.6;
             letter-spacing: 0.5px;
         }
 
-        /* ---------- SLIDE 4 : THANK YOU ---------- */
+        /* ---------- SLIDE 4 : THANK YOU (judul dengan emoji bintang love) ---------- */
+        .thank-title {
+            font-size: 1.2rem;
+            color: #fffffe;
+            text-shadow: 2px 2px 0 #f472b6, 4px 4px 0 #0f0e17;
+            margin-bottom: 8px;
+        }
         .thank-text {
             font-size: 0.75rem;
             line-height: 1.8;
@@ -282,8 +286,8 @@
 
         .nav-btn {
             background: #0f0e17;
-            color: #ff8906;
-            border: 3px solid #ff8906;
+            color: #f472b6;
+            border: 3px solid #f472b6;
             padding: 10px 20px;
             font-family: 'Press Start 2P', monospace;
             font-size: 0.5rem;
@@ -322,6 +326,7 @@
             .static-love { font-size: 1.2rem; }
             .love-line { font-size: 0.5rem; line-height: 1.9; }
             .tap-hint { font-size: 0.3rem; }
+            .thank-title { font-size: 1.0rem; }
         }
         @media (max-width: 380px) {
             .slide { padding: 14px 8px 18px; min-height: 340px; }
@@ -331,6 +336,7 @@
             .static-love { font-size: 1rem; }
             .love-line { font-size: 0.45rem; line-height: 1.7; }
             .falling-text { font-size: 0.5rem; }
+            .thank-title { font-size: 0.85rem; }
         }
         @media (max-height: 600px) and (orientation: landscape) {
             .slide { min-height: 280px; padding: 12px 16px; }
@@ -342,6 +348,7 @@
             .falling-text { font-size: 0.5rem; }
             .tap-hint { font-size: 0.25rem; margin-top: 12px; }
             .click-btn { padding: 8px 14px; font-size: 0.5rem; }
+            .thank-title { font-size: 0.9rem; }
         }
 
         /* ---------- CONFETTI ---------- */
@@ -359,7 +366,7 @@
             position: absolute;
             width: 6px;
             height: 6px;
-            background: #ff8906;
+            background: #f472b6;
             top: -20px;
             opacity: 0.4;
             image-rendering: pixelated;
@@ -410,7 +417,7 @@
             <div class="tap-hint" id="tapHint">✦ sentuh untuk lanjut ✦</div>
         </div>
 
-        <!-- SLIDE 3 : FOTO dari Google Drive (THUMBNAIL) -->
+        <!-- SLIDE 3 : FOTO -->
         <div class="slide" data-slide="3">
             <div class="photo-frames">
                 <div class="photo-frame">
@@ -432,9 +439,9 @@
             <p class="falling-text">💕 falling in love with u is the best thing i've ever felt 💕</p>
         </div>
 
-        <!-- SLIDE 4 -->
+        <!-- SLIDE 4 : THANK U dengan emoji bintang love di belakang -->
         <div class="slide" data-slide="4">
-            <h2 style="font-size:1.2rem;">🙏 THANK U</h2>
+            <h2 class="thank-title">THANK U ✨💕</h2>
             <p class="thank-text">
                 for all the things that u done for us <br />
                 and may all kindness comes to u
@@ -543,7 +550,7 @@
                     el.style.animationDuration = 12 + Math.random() * 20 + 's';
                     el.style.animationDelay = Math.random() * 18 + 's';
                     el.style.opacity = 0.2 + Math.random() * 0.4;
-                    el.style.color = ['#ff3d7f', '#ff6b9d', '#f9c74f', '#ff8906'][Math.floor(Math.random() * 4)];
+                    el.style.color = ['#f472b6', '#f9a8d4', '#f9c74f', '#f472b6'][Math.floor(Math.random() * 4)];
                     container.appendChild(el);
                 }
             })();
@@ -551,7 +558,7 @@
             // ---- CONFETTI ----
             (function createConfetti() {
                 const container = document.getElementById('confetti-container');
-                const colors = ['#ff8906', '#ff3d7f', '#f9c74f', '#90be6d', '#4cc9f0', '#f9844a'];
+                const colors = ['#f472b6', '#f9a8d4', '#f9c74f', '#a78bfa', '#f472b6'];
                 const count = 10;
                 for (let i = 0; i < count; i++) {
                     const el = document.createElement('div');
@@ -568,7 +575,7 @@
                 }
             })();
 
-            console.log('📸 Slide 3: menggunakan Google Drive thumbnail (lebih stabil).');
+            console.log('💕 Tema soft pink, slide 4 judul "THANK U ✨💕"');
         })();
     </script>
 
