@@ -153,14 +153,17 @@
             50% { transform: scale(1.3); opacity: 1; }
         }
 
-        /* ===== SLIDE 2 : UCAPAN ROMANTIS (FULL TEKS) ===== */
-        .date-small {
-            font-size: 0.5rem;
+        /* ===== SLIDE 2 : UCAPAN ROMANTIS (judul digabung) ===== */
+        .combined-title {
+            font-size: 1.4rem;
+            color: #fffffe;
+            text-shadow: 2px 2px 0 #ff8906, 4px 4px 0 #0f0e17;
+            line-height: 1.5;
+            margin-bottom: 6px;
+        }
+        .combined-title .ampersand {
             color: #f9c74f;
-            text-shadow: 1px 1px 0 #ff8906, 2px 2px 0 #0f0e17;
-            margin-top: 2px;
-            margin-bottom: 14px;
-            letter-spacing: 2px;
+            text-shadow: 2px 2px 0 #ff8906, 4px 4px 0 #0f0e17;
         }
 
         .love-letter {
@@ -171,13 +174,13 @@
 
         .love-line {
             font-size: 0.6rem;
-            line-height: 2;
+            line-height: 2.1;
             color: #fffffe;
             text-shadow: 1px 1px 0 #ff8906, 2px 2px 0 #0f0e17;
             opacity: 0;
-            transform: translateY(10px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
-            margin: 2px 0;
+            transform: translateY(12px);
+            transition: opacity 0.9s ease, transform 0.9s ease;
+            margin: 3px 0;
         }
         .love-line.visible {
             opacity: 1;
@@ -199,7 +202,7 @@
         .tap-hint {
             font-size: 0.35rem;
             color: #a7a9be;
-            margin-top: 18px;
+            margin-top: 22px;
             animation: blink 1.6s step-end infinite;
             opacity: 0.6;
             letter-spacing: 2px;
@@ -314,8 +317,9 @@
                 min-height: 400px;
                 border-width: 4px;
             }
-            h1 { font-size: 1.1rem; }
-            h2 { font-size: 0.9rem; }
+            .combined-title {
+                font-size: 1.0rem;
+            }
             .photo-frame {
                 width: 80px;
                 height: 80px;
@@ -345,10 +349,7 @@
             }
             .love-line {
                 font-size: 0.5rem;
-                line-height: 1.8;
-            }
-            .date-small {
-                font-size: 0.4rem;
+                line-height: 1.9;
             }
             .tap-hint {
                 font-size: 0.3rem;
@@ -359,7 +360,9 @@
                 padding: 14px 8px 18px;
                 min-height: 340px;
             }
-            h1 { font-size: 0.9rem; }
+            .combined-title {
+                font-size: 0.85rem;
+            }
             .photo-frame {
                 width: 65px;
                 height: 65px;
@@ -372,7 +375,7 @@
             }
             .love-line {
                 font-size: 0.45rem;
-                line-height: 1.6;
+                line-height: 1.7;
             }
         }
         @media (max-height: 600px) and (orientation: landscape) {
@@ -380,6 +383,9 @@
                 min-height: 280px;
                 padding: 12px 16px;
             }
+            .combined-title {
+                font-size: 0.9rem;
+            }
             .photo-frame {
                 width: 65px;
                 height: 65px;
@@ -392,15 +398,11 @@
             }
             .love-line {
                 font-size: 0.45rem;
-                line-height: 1.6;
-            }
-            .date-small {
-                font-size: 0.35rem;
-                margin-bottom: 8px;
+                line-height: 1.7;
             }
             .tap-hint {
                 font-size: 0.25rem;
-                margin-top: 10px;
+                margin-top: 12px;
             }
             .click-btn {
                 padding: 8px 14px;
@@ -464,18 +466,18 @@
             <button class="click-btn" id="openLetterBtn">📬 CLICK HERE</button>
         </div>
 
-        <!-- ===== SLIDE 2 : UCAPAN ROMANTIS (TEKS LENGKAP) ===== -->
+        <!-- ===== SLIDE 2 : UCAPAN ROMANTIS (judul digabung) ===== -->
         <div class="slide" data-slide="2">
-            <h1 style="font-size:1.4rem;">🎂 HAPPY BIRTHDAY</h1>
-            <div class="date-small">&</div>
-            <div class="date-small" style="font-size:0.6rem; margin-bottom:12px;">HAPPY ANNIVERSARY</div>
+            <div class="combined-title">
+                🎂 HAPPY BIRTHDAY <span class="ampersand">&</span> HAPPY ANNIVERSARY
+            </div>
 
             <div class="love-letter" id="loveLetter">
                 <p class="love-line" data-delay="0">Happy Birthday and Happy Anniversary For Us Darlinggg 🫠🫵🏻💗🛐</p>
-                <p class="love-line" data-delay="700">Thank u for always being so kind to me and for urself too...</p>
-                <p class="love-line" data-delay="1400">ur so one of a kind in this world and im so grateful to have u as my girlfriend...</p>
-                <p class="love-line" data-delay="2100">May ur birthday and our anniversary give us so much bless to any kind of thing</p>
-                <p class="love-line" data-delay="2800">that we've been through nowadays or in the future.. I love u so much <span class="heart-glow">Mi Amor</span> &lt;3</p>
+                <p class="love-line" data-delay="1200">Thank u for always being so kind to me and for urself too...</p>
+                <p class="love-line" data-delay="2400">ur so one of a kind in this world and im so grateful to have u as my girlfriend...</p>
+                <p class="love-line" data-delay="3600">May ur birthday and our anniversary give us so much bless to any kind of thing</p>
+                <p class="love-line" data-delay="4800">that we've been through nowadays or in the future.. I love u so much <span class="heart-glow">Mi Amor</span> &lt;3</p>
             </div>
 
             <div class="tap-hint" id="tapHint">✦ sentuh untuk lanjut ✦</div>
@@ -579,7 +581,7 @@
                 }
             }, { passive: true });
 
-            // ---- SLIDE 2 : TYPEWRITER ROMANTIS (FULL TEKS) ----
+            // ---- SLIDE 2 : TYPEWRITER ROMANTIS (delay lebih lambat) ----
             function startLoveLetter() {
                 if (slide2Typed) return;
                 const lines = document.querySelectorAll('.love-line');
@@ -592,7 +594,7 @@
                         if (idx === lines.length - 1) {
                             setTimeout(() => {
                                 if (hint) hint.style.display = 'none';
-                            }, 900);
+                            }, 1200);
                         }
                     }, delay);
                 });
@@ -668,7 +670,7 @@
                 }
             })();
 
-            console.log('💕 Slide 2: teks lengkap sesuai permintaan, tanpa satu karakter pun terpotong.');
+            console.log('💕 Slide 2: judul digabung, animasi lebih lambat (delay 1.2s antar baris).');
         })();
     </script>
 
