@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday, Baby 💕</title>
+    <style>
+        /* ----- RESET & BASE ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', 'Poppins', cursive, sans-serif;
+            background: #1a0a1a;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* ----- ANIMATED GRADIENT BACKGROUND ----- */
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            background: linear-gradient(135deg, #2d0a2d, #4a0e4a, #7a1a4a, #b32a5a, #7a1a4a, #4a0e4a, #2d0a2d);
+            background-size: 400% 400%;
+            animation: gradientShift 18s ease infinite;
+        }
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* overlay lembut */
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            background: radial-gradient(ellipse at center, rgba(255, 80, 120, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* ----- FLOATING HEARTS (di-background) ----- */
+        .heart-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .heart-bg .heart {
+            position: absolute;
+            bottom: -40px;
+            color: rgba(255, 120, 160, 0.25);
+            font-size: 20px;
+            animation: floatUp linear infinite;
+            user-select: none;
+        }
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg) scale(0.8);
+                opacity: 0.3;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-110vh) rotate(720deg) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        /* ----- MAIN CARD ----- */
+        .card {
+            position: relative;
+            z-index: 10;
+            max-width: 560px;
+            width: 92%;
+            padding: 50px 40px 55px;
+            background: rgba(255, 240, 245, 0.12);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-radius: 60px 20px 60px 20px;
+            border: 1px solid rgba(255, 200, 220, 0.25);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6),
+                0 0 0 1px rgba(255, 200, 220, 0.1) inset,
+                0 0 60px rgba(255, 80, 120, 0.15);
+            text-align: center;
+            animation: cardIn 1.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            transform-origin: center;
+            transition: box-shadow 0.5s;
+        }
+        .card:hover {
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7),
+                0 0 0 1px rgba(255, 200, 220, 0.3) inset,
+                0 0 80px rgba(255, 80, 120, 0.25);
+        }
+
+        @keyframes cardIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.85) translateY(40px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        /* ----- CANDLE ----- */
+        .candle-wrap {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+            gap: 6px;
+        }
+        .candle {
+            position: relative;
+            width: 28px;
+            height: 60px;
+            background: linear-gradient(180deg, #ffdbb5, #f5c094, #e8a87a);
+            border-radius: 8px 8px 4px 4px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), inset 0 -4px 8px rgba(0, 0, 0, 0.15);
+            transform-origin: bottom center;
+            animation: candleGlow 3s ease-in-out infinite alternate;
+        }
+        .candle::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 18px;
+            background: radial-gradient(ellipse at center, #ffdd44, #ff8800 50%, transparent 80%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: flameFlicker 0.8s ease-in-out infinite alternate;
+            filter: blur(1px);
+            box-shadow: 0 0 30px #ff8800, 0 0 60px #ff4400;
+        }
+        .candle::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(ellipse at center, rgba(255, 200, 50, 0.4), transparent 70%);
+            border-radius: 50%;
+            filter: blur(10px);
+            animation: glowPulse 1.8s ease-in-out infinite alternate;
+        }
+        @keyframes flameFlicker {
+            0% {
+                transform: translateX(-50%) scale(1) rotate(-4deg);
+                opacity: 0.9;
+            }
+            50% {
+                transform: translateX(-50%) scale(1.15, 0.85) rotate(3deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(-50%) scale(0.9, 1.1) rotate(-2deg);
+                opacity: 0.85;
+            }
+        }
+        @keyframes glowPulse {
+            0% {
+                transform: translateX(-50%) scale(0.8);
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateX(-50%) scale(1.6);
+                opacity: 1;
+            }
+        }
+        @keyframes candleGlow {
+            0% {
+                filter: brightness(1);
+            }
+            100% {
+                filter: brightness(1.08);
+            }
+        }
+
+        /* ----- TEKS UTAMA ----- */
+        .greeting {
+            font-size: 2.6rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #fff;
+            text-shadow: 0 0 30px rgba(255, 120, 180, 0.3);
+            line-height: 1.2;
+            margin-bottom: 6px;
+        }
+        .greeting .highlight {
+            background: linear-gradient(135deg, #ff8aae, #ff3d7f, #ff8aae);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s ease-in-out infinite;
+            font-weight: 800;
+            display: inline-block;
+            text-shadow: none;
+            filter: drop-shadow(0 0 20px rgba(255, 60, 120, 0.4));
+        }
+        @keyframes shimmer {
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .sub {
+            font-size: 1.15rem;
+            color: rgba(255, 220, 230, 0.85);
+            margin-top: 4px;
+            margin-bottom: 18px;
+            font-weight: 300;
+            letter-spacing: 3px;
+        }
+
+        .divider {
+            width: 70px;
+            height: 3px;
+            margin: 14px auto 18px;
+            background: linear-gradient(90deg, transparent, #ff6b9d, transparent);
+            border-radius: 4px;
+            animation: dividerPulse 2.4s ease-in-out infinite;
+        }
+        @keyframes dividerPulse {
+            0%,
+            100% {
+                opacity: 0.4;
+                transform: scaleX(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scaleX(1.2);
+            }
+        }
+
+        /* ----- MESSAGE ----- */
+        .message {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: rgba(255, 235, 240, 0.85);
+            font-weight: 300;
+            max-width: 380px;
+            margin: 0 auto 20px;
+            padding: 0 6px;
+        }
+        .message .heart-icon {
+            color: #ff4d7a;
+            display: inline-block;
+            animation: heartBeat 1.4s ease-in-out infinite;
+        }
+        @keyframes heartBeat {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            15% {
+                transform: scale(1.25);
+            }
+            30% {
+                transform: scale(1);
+            }
+            45% {
+                transform: scale(1.15);
+            }
+            60% {
+                transform: scale(1);
+            }
+        }
+
+        /* ----- TANDA TANGAN ----- */
+        .signature {
+            font-size: 0.95rem;
+            color: rgba(255, 200, 215, 0.6);
+            font-weight: 300;
+            letter-spacing: 1px;
+            margin-top: 16px;
+            font-style: italic;
+        }
+        .signature span {
+            color: #ff8aae;
+            font-weight: 500;
+        }
+
+        /* ----- SPARKLE (di sekitar card) ----- */
+        .sparkle {
+            position: fixed;
+            z-index: 5;
+            pointer-events: none;
+            font-size: 18px;
+            color: rgba(255, 255, 200, 0.5);
+            animation: sparkleFloat 4s ease-in-out infinite;
+            user-select: none;
+        }
+        @keyframes sparkleFloat {
+            0%,
+            100% {
+                transform: translateY(0) scale(0.6) rotate(0deg);
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-120px) scale(1.2) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* ----- RESPONSIVE ----- */
+        @media (max-width: 480px) {
+            .card {
+                padding: 35px 22px 40px;
+            }
+            .greeting {
+                font-size: 2.0rem;
+            }
+            .sub {
+                font-size: 0.95rem;
+                letter-spacing: 2px;
+            }
+            .message {
+                font-size: 0.95rem;
+            }
+            .candle {
+                width: 22px;
+                height: 50px;
+            }
+            .candle::after {
+                width: 6px;
+                height: 14px;
+            }
+        }
+        @media (max-width: 380px) {
+            .greeting {
+                font-size: 1.6rem;
+            }
+            .card {
+                padding: 28px 16px 32px;
+            }
+        }
+
+        /* ----- CURSOR CUSTOM (opsional) ----- */
+        .cursor-heart {
+            position: fixed;
+            pointer-events: none;
+            z-index: 999;
+            font-size: 18px;
+            transform: translate(-50%, -50%);
+            animation: cursorFade 1s ease-out forwards;
+            user-select: none;
+        }
+        @keyframes cursorFade {
+            0% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -80%) scale(1.6) rotate(40deg);
+            }
+        }
+
+        /* ----- SCROLLBAR (biar rapi) ----- */
+        ::-webkit-scrollbar {
+            width: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BACKGROUND -->
+    <div class="bg-gradient"></div>
+    <div class="bg-overlay"></div>
+
+    <!-- HEART BACKGROUND (JS diisi) -->
+    <div class="heart-bg" id="heartBg"></div>
+
+    <!-- SPARKLE (JS diisi) -->
+    <div id="sparkleContainer"></div>
+
+    <!-- MAIN CARD -->
+    <div class="card" id="mainCard">
+        <!-- Candle -->
+        <div class="candle-wrap">
+            <div class="candle"></div>
+        </div>
+
+        <!-- Greeting -->
+        <div class="greeting">
+            Happy Birthday,<br />
+            <span class="highlight">Baby</span> 💕
+        </div>
+        <div class="sub">— untuk yang paling istimewa —</div>
+
+        <div class="divider"></div>
+
+        <!-- Message -->
+        <div class="message">
+            Semoga hari ini penuh dengan <span class="heart-icon">❤️</span>
+            kebahagiaan, cinta, dan senyuman manismu.
+            <br /><br />
+            Kamu adalah hadiah terindah dalam hidupku.
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Signature -->
+        <div class="signature">
+            dengan cinta, <span> untukmu selamanya</span> ✨
+        </div>
+    </div>
+
+    <script>
+        // ============================================================
+        //  1.  FLOATING HEARTS (background)
+        // ============================================================
+        (function createHearts() {
+            const container = document.getElementById('heartBg');
+            const heartSymbols = ['♥', '❤', '♥', '❤', '♥'];
+            const count = 28;
+
+            for (let i = 0; i < count; i++) {
+                const el = document.createElement('span');
+                el.className = 'heart';
+                el.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+                const size = 16 + Math.random() * 34;
+                el.style.fontSize = size + 'px';
+                el.style.left = Math.random() * 100 + '%';
+                el.style.animationDuration = 14 + Math.random() * 24 + 's';
+                el.style.animationDelay = Math.random() * 20 + 's';
+                el.style.opacity = 0.2 + Math.random() * 0.35;
+                container.appendChild(el);
+            }
+        })();
+
+        // ============================================================
+        //  2.  SPARKLE (stars around card)
+        // ============================================================
+        (function createSparkles() {
+            const container = document.getElementById('sparkleContainer');
+            const emojis = ['✦', '✧', '☆', '✦', '✧', '·', '◦'];
+            const count = 18;
+
+            for (let i = 0; i < count; i++) {
+                const el = document.createElement('span');
+                el.className = 'sparkle';
+                el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                const size = 12 + Math.random() * 20;
+                el.style.fontSize = size + 'px';
+                el.style.left = 5 + Math.random() * 90 + '%';
+                el.style.top = 5 + Math.random() * 90 + '%';
+                el.style.animationDuration = 3 + Math.random() * 5 + 's';
+                el.style.animationDelay = Math.random() * 6 + 's';
+                el.style.color = `rgba(255, 220, 180, ${0.3 + Math.random() * 0.4})`;
+                container.appendChild(el);
+            }
+        })();
+
+        // ============================================================
+        //  3.  CURSOR → heart burst (romantis + interaktif)
+        // ============================================================
+        (function cursorHearts() {
+            const emojis = ['❤️', '💕', '✨', '💗', '♥'];
+
+            document.addEventListener('mousemove', function(e) {
+                // hanya muncul jika mouse di dalam area card (atau di sekitar)
+                const card = document.getElementById('mainCard');
+                const rect = card.getBoundingClientRect();
+                const padding = 120;
+                if (e.clientX < rect.left - padding || e.clientX > rect.right + padding ||
+                    e.clientY < rect.top - padding || e.clientY > rect.bottom + padding) {
+                    return;
+                }
+
+                // random chance 12%
+                if (Math.random() > 0.12) return;
+
+                const el = document.createElement('span');
+                el.className = 'cursor-heart';
+                el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                el.style.left = e.clientX + 'px';
+                el.style.top = e.clientY + 'px';
+                el.style.fontSize = (14 + Math.random() * 24) + 'px';
+                el.style.color = `hsl(${330 + Math.random() * 30}, 100%, ${70 + Math.random() * 20}%)`;
+                document.body.appendChild(el);
+
+                setTimeout(() => { el.remove(); }, 1200);
+            });
+        })();
+
+        // ============================================================
+        //  4.  TAMBAHAN:  ciuman kilat (opsional, efek romantis)
+        //      klik di card → muncul "💋" dengan animasi
+        // ============================================================
+        document.getElementById('mainCard').addEventListener('click', function(e) {
+            const emojis = ['💋', '💕', '❤️', '✨', '🥰'];
+            for (let i = 0; i < 6; i++) {
+                const el = document.createElement('span');
+                el.className = 'cursor-heart';
+                el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                const offsetX = (Math.random() - 0.5) * 120;
+                const offsetY = (Math.random() - 0.5) * 80 - 20;
+                el.style.left = (e.clientX + offsetX) + 'px';
+                el.style.top = (e.clientY + offsetY) + 'px';
+                el.style.fontSize = (18 + Math.random() * 28) + 'px';
+                el.style.color = `hsl(${330 + Math.random() * 30}, 100%, ${70 + Math.random() * 20}%)`;
+                el.style.animationDuration = (0.8 + Math.random() * 0.6) + 's';
+                document.body.appendChild(el);
+                setTimeout(() => { el.remove(); }, 1600);
+            }
+        });
+
+        // ============================================================
+        //  5.  PESAN KONSOL (untuk si pembuat web)
+        // ============================================================
+        console.log('💕 Happy Birthday, Baby! 💕');
+        console.log('Dibuat dengan penuh cinta untuk pacar temanmu. 🥰');
+        console.log('✨ Semoga hari ini indah dan berkesan ✨');
+    </script>
+
+</body>
+</html>
