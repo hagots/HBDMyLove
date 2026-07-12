@@ -208,7 +208,7 @@
             50% { opacity: 0.15; }
         }
 
-        /* ---------- SLIDE 3 : FOTO FRAME (Google Drive) ---------- */
+        /* ---------- SLIDE 3 : FOTO FRAME (Google Drive Thumbnail) ---------- */
         .photo-frames {
             display: flex;
             flex-wrap: wrap;
@@ -410,19 +410,22 @@
             <div class="tap-hint" id="tapHint">✦ sentuh untuk lanjut ✦</div>
         </div>
 
-        <!-- SLIDE 3 : FOTO dari Google Drive -->
+        <!-- SLIDE 3 : FOTO dari Google Drive (THUMBNAIL) -->
         <div class="slide" data-slide="3">
             <div class="photo-frames">
                 <div class="photo-frame">
-                    <img src="https://drive.google.com/uc?export=view&id=1wahJqMeRDFnHKiGNSQ-H7LnbtEwhBoK_" alt="Foto 1" />
+                    <img src="https://drive.google.com/thumbnail?id=1wahJqMeRDFnHKiGNSQ-H7LnbtEwhBoK_&sz=w400" alt="Foto 1" 
+                         onerror="this.classList.add('error');" />
                     <span class="placeholder">📷</span>
                 </div>
                 <div class="photo-frame">
-                    <img src="https://drive.google.com/uc?export=view&id=14dgV5NCaqncbNCby9IUCoKQMYTb6R4R4" alt="Foto 2" />
+                    <img src="https://drive.google.com/thumbnail?id=14dgV5NCaqncbNCby9IUCoKQMYTb6R4R4&sz=w400" alt="Foto 2" 
+                         onerror="this.classList.add('error');" />
                     <span class="placeholder">📷</span>
                 </div>
                 <div class="photo-frame">
-                    <img src="https://drive.google.com/uc?export=view&id=1xVKec2xx4N2BVFzlsruS19Qa3T9I4ZP0" alt="Foto 3" />
+                    <img src="https://drive.google.com/thumbnail?id=1xVKec2xx4N2BVFzlsruS19Qa3T9I4ZP0&sz=w400" alt="Foto 3" 
+                         onerror="this.classList.add('error');" />
                     <span class="placeholder">📷</span>
                 </div>
             </div>
@@ -565,7 +568,7 @@
                 }
             })();
 
-            console.log('📸 Slide 3: foto dari Google Drive (direct link).');
+            console.log('📸 Slide 3: menggunakan Google Drive thumbnail (lebih stabil).');
         })();
     </script>
 
